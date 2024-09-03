@@ -1,38 +1,425 @@
-.App {
+body{
+  background-image: url('./img/fon2.png'); /* Замените 'your-image-url.jpg' на путь к вашей картинке */
+  background-repeat: repeat; /* Картинка будет повторяться как по горизонтали, так и по вертикали */
+  background-size: auto; /* Оставляем исходный размер картинки */
+}
+
+
+
+
+button{
+  margin: 7px;
+    border: 0px;
+    border-radius: 5px;
+    background-color:  orange;
+    cursor: pointer;
+    font-size: 22px;
+    transition: all 1s ease;
+    padding: 5px;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+  }
+form{
+    text-align: center;
+}
+a{
+  text-decoration: none;
+  color:#1f74ed;
+}
+input{
+  font-size: 27px;
+}
+footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #ffba5ab9;
+  border-top: 5px solid orange;
+  justify-content: center;
+  margin-top: 50px;
+  width: 100%;
+  font-size: 25px;
+  text-align: center;
+  gap: 20px;
+}
+footer a{
+  text-decoration:none;
+}
+footer img{
+  width:257px;
+}
+h3{
+  margin-top:30px ;
+}
+
+/* color - #FFBA5A */
+button:hover{
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Подсветка */
+  transform: scale(1.07); /* Увеличение на 5% */
+}
+/* Styles for main page  */
+
+.welcome{
+  font-size: 40px;
+  text-align: center;
+  color: orange;
+  font-family: "Playwrite DK Loopet", "cursive";
+  /* background-color: rgba(255, 255, 255, 0.945); */
+  padding: 5px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.recipes{
+    display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.card{
+    text-align: center;
+    display: flex;
+  flex-direction:column;
+  flex-wrap: wrap;
+  margin: 1.2rem;
+  padding: 1rem;
+ /* background-color:#e5e7eb; */
+ background-color: whitesmoke;
+ border-radius:10px;
+ border: 2px solid #f8b118;
+ width:17%;
+ 
+}
+.card img{
+  margin-top: 10px;
+    width:100%;
+    text-align: center;
+    object-fit: cover;
+    border-radius: 3px;
+    
+}
+.input-search {
+  margin-top: 10px;
+  width: 580px;
+  height: 50px;
+  border: 2px solid #FFA313;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  padding-left: 5px;
+  transition: all 0.3s ease;
+}
+.input-ingredient{
+  margin-top: 10px;
+  margin: 5px;
+  width: 200px;
+  height: 50px;
+  border: 2px solid #FFA313;
+  background-color:rgba(255, 255, 255, 0.9)
+  ;
+  border-radius: 5px;
+  padding-left: 5px;
+  transition: all  0.3s ease;
+}
+.btn-search{
+    width: 140px;
+  height: 40px;
+  /* border: 2px solid black; */
+  border-radius: 5px;
+  background-color: orange;
+  color: #fff;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 22px;
+  display: inline-block; /* Делаем кнопку блочным элементом, чтобы можно было управлять ее размерами */
+  position: relative; /* Устанавливаем позиционирование кнопки как относительное */
+  padding-right: 10px;
+  transition: all 1s ease;
+}
+
+select{
+  width: 140px;
+  height: 40px;
+  border-radius: 5px;
+  color: orange;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 23px;
+  display: inline-block; /* Делаем кнопку блочным элементом, чтобы можно было управлять ее размерами */
+  position: relative; /* Устанавливаем позиционирование кнопки как относительное */
+  padding-right: 10px;
+  transition: all 1s ease;
+}
+/* select:hover{
+  background-color: orange;
+    color: white
+} */
+select option {
+  color: #333; /* Цвет текста опций */
+  background-color: #fff; /* Цвет фона опций */
+}
+select option:checked {
+  background-color: #FFBA5A; /* Оранжевый фон выбранной опции */
+  color: white; /* Белый цвет текста для выбранной опции */
+}
+
+.back-button{
+  width: 200px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.back-button img{
+  width: 30px;
+  
+}
+.ingredients{
+  font-size: 23px;
+  padding: 2px;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: black;
+  background-color: #FFBA5A;
+  cursor: pointer;
+}
+
+/* Styles for Categories component  */
+.categories-container{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+.category-card{
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  border: 5px solid #FFA313;
+  font-size: 22px;
+  /* background-color: #f79e22ba; */
+}
+.category{
+  color: #FFA313;
+}
+/* Styles for Recipe component */
+.recipe footer{
+  padding-top: 10px;
+  padding-bottom:10px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.recipe-section{
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  border: 5px solid #e5e7eb;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.recipe-box{
+  display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    width:100%;
+}
+.recipe-box img{
+  border-radius: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.recipe-details{
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+.recipe-details h2{
+  font-weight: 450;
+  font-size: 37px;
+}
+.recipe-details span{
+  color: #FFA52C;
+  font-weight: 570;
+}
+.ingridient{
+  font-size: 33px;
+}
+.ingridient span{
+  color: #f6bb3e;
+  font-weight: 450;
+}
+.instruction{
+  font-size: 27px;
+  width:100%;
+}
+.instruction h1{
+  color: #f6bb3e;
+}
+.instruction p{
+  color: #6c7983;
+
+}
+.guide{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.guide a{
+  background-color:#f8b118;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 700;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 7px;
+  text-align: center;
+  transition: all 1s ease;
+  font-size: 30px;
+  text-decoration: none;
+  color: white;
+}
+.guide a:hover{
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Подсветка */
+  transform: scale(1.07); /* Увеличение на 5% */
+}
+iframe {
+  height: 650px;
+  padding: 15px;
+  width: 85%;
+  background-color: #fff;
+  border: 5px solid #e5e7eb;
+  border-radius: 10px;
+  outline: none;
+}
+
+/* Media requests  */
+@media(max-width:1600px){
+  .recipe-box img{
+    width:560px;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media (max-width:1200px){
+  .recipe-box{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .instruction h1{
+    margin-top: 20px;
+  }
+}
+@media (max-width:970px){
+  .recipe-details{
+    font-size: 25px;
+  }
+  .ingridient{
+    font-size: 33px;
+  }
+}
+@media (max-width:910px) {
+  iframe{
+    padding: 10px;
+  }
+  .card{
+    margin: 0.55rem;
+    width:19%;
+  }
+  input{
+    font-size: 22px;
+  }
+  .input-search{
+    width:400px;
+  }
+  .input-ingredient{
+    width: 150px;
+  }
+  
+}
+@media (max-width:830px){
+  .card{
+    width:27%;
+    margin: 0.35rem;
+  }
+  footer img{
+    width:200px;
+  }
+  iframe{
+    height:500px;
+    width: 93%;
+  }
+}
+
+@media (max-width:680px){
+  h1{
+    font-size: 40px;
+  }
+  .recipe-details h1{
+    font-size: 37px;
+  }
+  .recipe-details h2{
+    font-size: 30px;
+  }
+  .ingredient{
+  font-size: 25px;
+  }
+  .card{
+    width:40%;
+    margin: 0.45rem;
+  }
+  footer h3{
+    font-size: 27px;
+  }
+  .recipe-section{
+    padding: 1rem;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+}
+@media (max-width:663px){
+  footer img:last-child{
+    display: none;
+  }
+  .recipe-box img{
+    width: 420px;
+  }
+  iframe{
+    height:400px;
+  }
+  .welcome{
+    font-size: 35px;
+    padding: 3px;
+  }
+}
+@media (max-width:515px){
+  .recipe-box img{
+    width:350px;
+  }
+  .welcome{
+    font-size: 30px;
+  }
+}
+@media (max-width:465px){
+  h1{
+    font-size: 27px;
+  }
+  .input-search{
+    width:330px;
+  }
+  .card{
+    width:37%;
+    margin: 0.3rem;
+  }
+  footer img{
+    width:140px;
+  }
+  footer h3{
+    font-size: 22px;
+  }
+}
+@media(max-width:400px){
+  .recipe-box img{
+    width:300px;
   }
 }
