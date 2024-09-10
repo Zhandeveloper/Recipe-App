@@ -242,7 +242,7 @@ justify-content: space-between;
   color: #FFA52C;
   font-weight: 570;
 }
-.ingridient{
+.ingredient{
   font-size: 33px;
 }
 .ingridient span{
@@ -313,7 +313,7 @@ iframe {
   .recipe-details{
     font-size: 25px;
   }
-  .ingridient{
+  .ingredient{
     font-size: 33px;
   }
 }

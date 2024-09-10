@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import cook_img from "../img/cook.png"
-import back_img from '../img/back.png'
+import cook_img from "../img/cook.png";
+import back_img from '../img/back.png';
 const apiURL = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
 
 const Recipe = () => {
   const { id } = useParams();
-  const navigate = useNavigate(); // useNavigate hook
+  const navigate = useNavigate();
   const [recipe, setRecipe] = useState(null);
+  const [isExpanded, setIsExpanded] = useState(false); 
 
   useEffect(() => {
     const fetchRecipe = async () => {
@@ -27,10 +28,8 @@ const Recipe = () => {
     return <p>Loading...</p>;
   }
 
-  // Преобразование ссылки на YouTube в формат для вставки в iframe
   const embedUrl = recipe.strYoutube ? recipe.strYoutube.replace("watch?v=", "embed/") : null;
 
-  // Создание массива ингредиентов и их количества
   const ingredients = [];
   for (let i = 1; i <= 20; i++) {
     const ingredient = recipe[`strIngredient${i}`];
@@ -40,17 +39,24 @@ const Recipe = () => {
     }
   }
 
-  // Handle back navigation
   const handleBack = () => {
-    navigate(-1); // Go back to the previous page
+    navigate(-1); 
+  };
+
+  const maxLength = 450;
+  const isLongText = recipe.strInstructions.length > maxLength;
+  const displayedText = isExpanded || !isLongText ? recipe.strInstructions : recipe.strInstructions.slice(0, maxLength);
+
+  const toggleShowMore = () => {
+    setIsExpanded(!isExpanded);
   };
 
   return (
     <div className="recipe">
       {/* Back Button */}
       <button onClick={handleBack} className="back-button">
-      <img src={back_img} alt="back_img" />
-                 Back
+        <img src={back_img} alt="back_img" />
+        Back
       </button>
       <div className="recipe-section">
         <h1>{recipe.strMeal}</h1>
@@ -62,28 +68,32 @@ const Recipe = () => {
             <h2><span>Country of origin</span> - {recipe.strArea}</h2>
             <h2><span>Recipe Source</span> - <a href={recipe.strSource} target='_blank' rel="noopener noreferrer">link</a></h2>
             <hr />
-            <h1>Ingridients</h1>
+            <h1>Ingredients</h1>
             {/* Вывод списка ингредиентов и их количества */}
             {ingredients.map((item, index) => {
               const [ingredient, measure] = item.split(" - ");
               return (
-                <p className='ingridient' key={index}>
+                <p className='ingredient' key={index}>
                   <span>{ingredient}</span> - {measure}
                 </p>
               );
             })}
-            
           </div>
-
         </div>
+
+        {/* Инструкция с функционалом "Show more / Show less" */}
         <div className="instruction">
-            <h1>Instruction</h1>
-            <p>{recipe.strInstructions}</p>
-          </div>
+          <h1>Instruction</h1>
+          <p>{displayedText}{isLongText && !isExpanded && '...'}</p>
+          {isLongText && (
+            <button onClick={toggleShowMore}>
+              {isExpanded ? 'Show less' : 'Show more'}
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="guide">
-        {/* Проверка на наличие ссылки на YouTube */}
         {embedUrl ? (
           <>
             <a href={recipe.strYoutube} target="_blank" rel="noopener noreferrer">Guide</a>
@@ -98,12 +108,12 @@ const Recipe = () => {
         ) : (
           <p>Видео не найдено</p>
         )}
-        
       </div>
-      
-       <footer>
-       <img src={cook_img} alt="cook" />               <h2>Enjoy your meal!</h2>
-       </footer>
+
+      <footer>
+        <img src={cook_img} alt="cook" />               
+        <h2>Enjoy your meal!</h2>
+      </footer>
     </div>
   );
 };
