@@ -313,6 +313,9 @@ iframe {
   .recipe-details{
     font-size: 25px;
   }
+  .recipe-details h1{
+    font-size: 32px;
+  }
   .ingredient{
     font-size: 33px;
   }
@@ -355,7 +358,8 @@ iframe {
     font-size: 40px;
   }
   .recipe-details h1{
-    font-size: 37px;
+    font-size: 32px;
+    font-weight: 600;
   }
   .recipe-details h2{
     font-size: 30px;
