@@ -1,5 +1,5 @@
 body{
-  background-image: url('./img/fon2.png'); /* Замените 'your-image-url.jpg' на путь к вашей картинке */
+  background-image: url('./img/fon.png'); /* Замените 'your-image-url.jpg' на путь к вашей картинке */
   background-repeat: repeat; /* Картинка будет повторяться как по горизонтали, так и по вертикали */
   background-size: auto; /* Оставляем исходный размер картинки */
 }
@@ -69,7 +69,9 @@ button:hover{
   padding: 5px;
   text-align: center;
 }
-
+.theme-select{
+  margin: 0px;
+}
 .recipes{
     display: flex;
   flex-direction: row;
@@ -169,6 +171,7 @@ select option:checked {
   justify-content: center;
   align-items: center;
   gap: 5px;
+  margin-top: 10px;
 }
 .back-button img{
   width: 30px;
@@ -245,7 +248,7 @@ justify-content: space-between;
 .ingredient{
   font-size: 33px;
 }
-.ingridient span{
+.dient span{
   color: #f6bb3e;
   font-weight: 450;
 }
@@ -292,6 +295,44 @@ iframe {
   border: 5px solid #e5e7eb;
   border-radius: 10px;
   outline: none;
+}
+/* Styles for dark-theme  */
+.dark-theme{
+  background-image: url('./img/fon4.jpg'); /* Замените 'your-image-url.jpg' на путь к вашей картинке */
+  background-repeat:repeat; /* Картинка будет повторяться как по горизонтали, так и по вертикали */
+  background-size:auto; /* Оставляем исходный размер картинки */
+}
+.dark-theme button{
+  color: white;
+}
+.dark-theme h1{
+  color: white;
+}
+.dark-theme p{
+  color: white;
+}
+.dark-theme iframe{
+  background-color: #070101e6;
+    border: 5px solid gray;
+}
+.dark-theme .welcome{
+  color: orange;
+}
+.dark-theme .card{
+  background-color: #80808080;
+}
+.dark-theme .ingredients{
+  background-color: orange;
+}
+.dark-theme .recipe-section{
+  background-color: #070101ba;
+    border: 5px solid gray;
+}
+.dark-theme .recipe-section h1{
+  color: #FFA313;
+}
+.dark-theme .h1-ingredients{
+  color: #FFA313;
 }
 
 /* Media requests  */
@@ -394,6 +435,9 @@ iframe {
   .welcome{
     font-size: 35px;
     padding: 3px;
+  }
+  .not_found{
+    width: 510px;
   }
 }
 @media (max-width:515px){

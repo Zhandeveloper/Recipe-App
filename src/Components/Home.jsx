@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import cook_img from '../img/cook.png'
-import logo_img from '../img/logo.png'
+import page_not_found_img from '../img/page_not_found.png'
 const apiURL = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 const categoryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
 const countryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?a=";
@@ -267,7 +267,7 @@ const Home = () => {
 
       <div className='recipes'>
         {isLoading && <p>Loading recipes...</p>}
-        {!isLoading && recipes.length === 0 && <p>No recipes found.</p>}
+        {!isLoading && recipes.length === 0 &&  <img src={page_not_found_img} alt='not found' className='not_found'/>}
         {recipes && recipes.map(recipe => (
           <div key={recipe.idMeal} className='card'>
             <h1>{recipe.strMeal}</h1>

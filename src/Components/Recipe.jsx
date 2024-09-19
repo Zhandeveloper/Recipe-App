@@ -64,11 +64,12 @@ const Recipe = () => {
           <img src={recipe.strMealThumb} alt={recipe.strMeal} />
 
           <div className="recipe-details">
+            
             <h2><span>Category</span> - {recipe.strCategory}</h2>
             <h2><span>Country of origin</span> - {recipe.strArea}</h2>
             <h2><span>Recipe Source</span> - <a href={recipe.strSource} target='_blank' rel="noopener noreferrer">link</a></h2>
             <hr />
-            <h1>Ingredients</h1>
+            <h1 className='h1-ingredients'>Ingredients</h1>
             {/* Вывод списка ингредиентов и их количества */}
             {ingredients.map((item, index) => {
               const [ingredient, measure] = item.split(" - ");
