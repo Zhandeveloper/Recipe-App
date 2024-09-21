@@ -4,9 +4,6 @@ body{
   background-size: auto; /* Оставляем исходный размер картинки */
 }
 
-
-
-
 button{
   margin: 7px;
     border: 0px;
@@ -59,7 +56,9 @@ button:hover{
   transform: scale(1.07); /* Увеличение на 5% */
 }
 /* Styles for main page  */
-
+.theme-select select{
+  margin-top: 10px;
+}
 .welcome{
   font-size: 40px;
   text-align: center;
@@ -90,7 +89,8 @@ button:hover{
  border-radius:10px;
  border: 2px solid #f8b118;
  width:17%;
- 
+ transition: all 0.5s ease;
+
 }
 .card img{
   margin-top: 10px;
@@ -108,7 +108,7 @@ button:hover{
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 5px;
   padding-left: 5px;
-  transition: all 0.3s ease;
+  transition: all 1s ease;
 }
 .input-ingredient{
   margin-top: 10px;
@@ -116,11 +116,10 @@ button:hover{
   width: 200px;
   height: 50px;
   border: 2px solid #FFA313;
-  background-color:rgba(255, 255, 255, 0.9)
-  ;
+  background-color:rgba(255, 255, 255, 0.9);
   border-radius: 5px;
   padding-left: 5px;
-  transition: all  0.3s ease;
+  transition: all  0.5s ease;
 }
 .btn-search{
     width: 140px;
@@ -296,17 +295,25 @@ iframe {
   border-radius: 10px;
   outline: none;
 }
+
 /* Styles for dark-theme  */
 .dark-theme{
-  background-image: url('./img/fon4.jpg'); /* Замените 'your-image-url.jpg' на путь к вашей картинке */
-  background-repeat:repeat; /* Картинка будет повторяться как по горизонтали, так и по вертикали */
-  background-size:auto; /* Оставляем исходный размер картинки */
+  background-image: url('./img/fon8.jpg'); /* Замените 'your-image-url.jpg' на путь к вашей картинке */
+  background-repeat:repeat-y; /* Картинка будет повторяться как по горизонтали, так и по вертикали */
+  background-size:contain; /* Оставляем исходный размер картинки */
+  transition: all 1s ease;
 }
 .dark-theme button{
   color: white;
 }
 .dark-theme h1{
   color: white;
+}
+.dark-theme h2{
+  color: white;
+}
+.dark-theme h3{
+  color: orange;
 }
 .dark-theme p{
   color: white;
@@ -334,6 +341,13 @@ iframe {
 .dark-theme .h1-ingredients{
   color: #FFA313;
 }
+.dark-theme .category-card{
+  background-color: #252323ea
+
+}
+.dark-theme .category-description{
+  color: white;
+}
 
 /* Media requests  */
 @media(max-width:1600px){
@@ -348,6 +362,12 @@ iframe {
   }
   .instruction h1{
     margin-top: 20px;
+  }
+  .dark-theme{
+    background-image: url('./img/v2.jpg'); /* Замените 'your-image-url.jpg' на путь к вашей картинке */
+  background-repeat:repeat-y; /* Картинка будет повторяться как по горизонтали, так и по вертикали */
+  background-size:auto; /* Оставляем исходный размер картинки */
+  transition: all 1s ease;
   }
 }
 @media (max-width:970px){
