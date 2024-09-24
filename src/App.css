@@ -3,6 +3,22 @@ body{
   background-repeat: repeat; /* Картинка будет повторяться как по горизонтали, так и по вертикали */
   background-size: auto; /* Оставляем исходный размер картинки */
 }
+/* Styles for scroll  */
+/* Стили для всего скроллбара */
+::-webkit-scrollbar {
+  width: 8px; /* Устанавливаем ширину скроллбара */
+}
+
+/* Стили для ползунка скроллбара */
+::-webkit-scrollbar-thumb {
+  background-color: orange; /* Цвет ползунка */
+  border-radius: 10px; /* Закругленные углы для ползунка */
+}
+
+/* Стили для фона скроллбара (фоновая область) */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Цвет фона скроллбара */
+}
 
 button{
   margin: 7px;
