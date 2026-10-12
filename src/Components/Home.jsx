@@ -18,6 +18,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   // Function to search and filter recipes
+  //test Push
   const searchRecipes = async (e) => {
     e && e.preventDefault();
     setIsLoading(true);
